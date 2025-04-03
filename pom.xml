@@ -6,4 +6,53 @@
   <version>1.0-SNAPSHOT</version>
   <name>Archetype - ES_ProjetoSFM</name>
   <url>http://maven.apache.org</url>
+
+
+  <!-- Propriedades gerais -->
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source> <!-- Define a versão do Java -->
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <!-- Dependências do projeto -->
+  <dependencies>
+    <!-- Dependência para OpenCSV, por exemplo, para trabalhar com CSV -->
+    <dependency>
+      <groupId>com.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>5.7.1</version>
+    </dependency>
+
+    <!-- Dependência para JUnit (caso você precise de testes) -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- Plugins do Maven -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source> <!-- Define a versão do Java para compilação -->
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version> <!-- Plugin para executar testes unitários -->
+      </plugin>
+    </plugins>
+  </build>
+
+
+
 </project>
