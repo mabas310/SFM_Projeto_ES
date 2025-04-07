@@ -14,9 +14,9 @@ public class CarregadorCSV {
 
         try (CSVReader reader = new CSVReader(new FileReader(arquivoCSV))) {
             String[] linha;
-            reader.readNext();  // Pula o cabeçalho (caso haja)
+            reader.readNext();  // Passa o cabeçalho (caso haja)
 
-            // Troque o readNext() por nextRecord(), se for a versão 5.x ou superior
+
             while ((linha = reader.readNext()) != null) {
                 if (linha.length >= 8) {
                     try {
@@ -50,6 +50,7 @@ public class CarregadorCSV {
             e.printStackTrace();
         } catch (CsvValidationException e) {
             throw new RuntimeException(e);
+
         }
 
         return propriedades;

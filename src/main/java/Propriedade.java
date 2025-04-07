@@ -4,7 +4,7 @@ public class Propriedade {
     private String proprietario;
     private String localizacao;
 
-    // Construtor
+
     public Propriedade(String id, double area, String proprietario, String localizacao) {
         this.id = id;
         this.area = area;
@@ -12,7 +12,7 @@ public class Propriedade {
         this.localizacao = localizacao;
     }
 
-    // Getters e Setters
+
     public String getId() {
         return id;
     }
