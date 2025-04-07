@@ -2,6 +2,7 @@
 public class PropriedadeTest {
 
     public void testGetId() {
+        return;
     }
 
     public void testSetId() {
