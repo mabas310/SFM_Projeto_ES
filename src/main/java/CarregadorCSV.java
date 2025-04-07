@@ -1,12 +1,11 @@
 import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderHeaderAware;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+    // Ajuste na classe CarregadorCSV para diagnóstico
 public class CarregadorCSV {
 
     public static List<Propriedade> carregarPropriedades(String arquivoCSV) {
@@ -16,17 +15,21 @@ public class CarregadorCSV {
             String[] linha;
             reader.readNext();  // Passa o cabeçalho (caso haja)
 
-
             while ((linha = reader.readNext()) != null) {
                 if (linha.length >= 8) {
                     try {
                         String id = linha[1];  // PAR_ID
+                        String areaString = linha[4];  // Shape_Area
+
+                        System.out.println("Área (raw): " + areaString);  // Imprimir valor bruto da área para diagnóstico
+
                         double area = 0;
                         try {
-                            area = Double.parseDouble(linha[4]);  // Shape_Area
+                            area = Double.parseDouble(areaString);  // Tenta converter para double
                         } catch (NumberFormatException e) {
-                            System.out.println("Erro ao converter área para número: " + linha[4]);
+                            System.out.println("Erro ao converter área para número: " + areaString);
                         }
+
                         String proprietario = linha[6];  // OWNER
                         String localizacao = linha[7];  // Freguesia
 
@@ -50,9 +53,9 @@ public class CarregadorCSV {
             e.printStackTrace();
         } catch (CsvValidationException e) {
             throw new RuntimeException(e);
-
         }
 
         return propriedades;
     }
 }
+
